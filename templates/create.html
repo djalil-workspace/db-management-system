@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Создание Новой Таблицы
+{% endblock title %}
+
+
+{% block button %}
+    <a type="button" class="btn btn-outline-light" href="/">Главная</a>
+{% endblock button %}
+
+
+{% block body %}
+
+
+    <style>
+        input {
+            border-radius: 5px;
+            opacity: 0.5;
+            resize: none;
+
+            width: 80%;
+            height: 50px;
+
+            display: block;
+            margin: 1% auto;
+            
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+            background-color: black;
+        }
+    </style>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <input type="text" name="table_name" placeholder="Введите название таблицы">
+        <input type="text" name="fields" placeholder="Введите поля таблицы (id int, name text)">
+
+        <button style="width: 10%; margin-top: 2%; margin-left:80%;" type="submit" class="btn btn-outline-light">Отправить</button>
+
+    </form>
+
+
+{% endblock body %}

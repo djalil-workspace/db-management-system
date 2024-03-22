@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Вход в систему
+{% endblock title %}
+
+
+{% block body %}
+
+
+<style>
+    /* Стили для формы */
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* Стили для заголовка */
+    h2 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* Стили для полей формы */
+    input[type="text"],
+    input[type="password"],
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box; /* Учитываем padding в ширине элемента */
+    }
+
+    /* Стили для кнопки */
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* При наведении на кнопку */
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Стили для CSRF-токена */
+    input[type="hidden"] {
+        display: none; /* Скрыть CSRF-токен */
+    }
+
+</style>
+
+
+<h2>Вход</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+</form>
+{% endblock body %}

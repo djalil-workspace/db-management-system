@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Результат Запроса
+{% endblock title %}
+
+
+{% block button %}
+    <a type="button" class="btn btn-outline-light" href="/">Главная</a>
+{% endblock button %}
+
+
+{% block body %}
+
+
+    <style>
+        .error {
+            font-size: larger;
+            border-radius: 10px;
+
+            width: 90%;
+            height: 200px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            margin: 0 auto;
+
+            background-color: lightblue;
+            opacity: 0.5;
+        }
+    </style>
+
+
+    <div class="error">
+        {% if not error %}
+            No errors!
+        {% else %}
+            {{error}}
+        {% endif %}
+    </div>
+
+{% endblock body %}
